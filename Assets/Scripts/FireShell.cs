@@ -12,6 +12,8 @@ public class FireShell : MonoBehaviour {
     float rotSpeed = 5;
     float moveSpeed = 1;
 
+    public Transform TurretBase { get => turretBase; set => turretBase = value; }
+
     void CreateBullet() 
     {
         GameObject shell = Instantiate(bullet, turret.transform.position, turret.transform.rotation);
@@ -23,7 +25,7 @@ public class FireShell : MonoBehaviour {
         float? angle = CalculateAngle(false);
         if (angle != null)
         {
-            turretBase.locateEulerAngles = new Vector3(360f - (float)angle, 0f, 0f);
+            turretBase.localEulerAngles = new Vector3(360f - (float)angle, 0f, 0f);
         }
         return angle;
     }
