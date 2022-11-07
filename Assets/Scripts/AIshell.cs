@@ -5,6 +5,7 @@ using UnityEngine;
 public class AIshell : MonoBehaviour
 {
     public GameObject explosion;
+    Rigidbody rb;
   
 
 
@@ -20,12 +21,12 @@ public class AIshell : MonoBehaviour
     }
     void Start()
     {
-        
+        rb = this.GetComponent<Rigidbody>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        this.transform.forward = rb.velocity;
     }
 }
