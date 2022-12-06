@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class Node
 {
@@ -11,7 +9,6 @@ public class Node
     public Dictionary<string, int> state;
     public GAction action;
 
-    // Constructor
     public Node(Node parent, float cost, Dictionary<string, int> allStates, GAction action)
     {
 
@@ -22,8 +19,9 @@ public class Node
     }
 }
 
-public class GPlanner : MonoBehaviour
+public class GPlanner
 {
+
     public Queue<GAction> plan(List<GAction> actions, Dictionary<string, int> goal, WorldStates states)
     {
 
@@ -98,6 +96,7 @@ public class GPlanner : MonoBehaviour
 
         return queue;
     }
+
     private bool BuildGraph(Node parent, List<Node> leaves, List<GAction> usableActions, Dictionary<string, int> goal)
     {
 
@@ -105,7 +104,7 @@ public class GPlanner : MonoBehaviour
         foreach (GAction action in usableActions)
         {
 
-            if (action.IsAchievableGiven(parent.state))
+            if (action.IsAhievableGiven(parent.state))
             {
 
                 Dictionary<string, int> currentState = new Dictionary<string, int>(parent.state);
@@ -176,6 +175,4 @@ public class GPlanner : MonoBehaviour
         }
         return true;
     }
-
 }
-

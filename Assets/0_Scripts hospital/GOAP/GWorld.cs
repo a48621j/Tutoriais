@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class GWorld : MonoBehaviour
+public sealed class GWorld 
 {
     private static readonly GWorld instance = new GWorld();
     private static WorldStates world;
